@@ -441,6 +441,14 @@ class JiraClient
     }
 
     /**
+     * @return bool
+     */
+    public function isAuthConfigurationComplete()
+    {
+        return $this->getConfiguration()->getJiraPassword() || file_exists($this->getConfiguration()->getCookiePath());
+    }
+
+    /**
      * Jira Rest API Configuration.
      *
      * @return ConfigurationInterface
