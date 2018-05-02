@@ -5,7 +5,7 @@ namespace JiraRestApi\Configuration;
 /**
  * Class AbstractConfiguration.
  */
-abstract class AbstractConfiguration implements ConfigurationInterface, ConfigurationInterface
+abstract class AbstractConfiguration implements ConfigurationInterface
 {
     /**
      * Jira host.
