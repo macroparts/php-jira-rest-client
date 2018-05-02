@@ -55,13 +55,6 @@ class JiraClient
     protected $configuration;
 
     /**
-     * cookie file name.
-     *
-     * @var string
-     */
-    protected $cookie = 'jira-cookies.txt';
-
-    /**
      * Constructor.
      *
      * @param ConfigurationInterface $configuration
@@ -433,14 +426,14 @@ class JiraClient
     {
         // use cookie
         if ($this->getConfiguration()->isCookieAuthorizationEnabled()) {
-            curl_setopt($ch, CURLOPT_COOKIEJAR, $this->cookie);
-            curl_setopt($ch, CURLOPT_COOKIEFILE, $this->cookie);
+            curl_setopt($ch, CURLOPT_COOKIEJAR, $this->getConfiguration()->getCookiePath());
+            curl_setopt($ch, CURLOPT_COOKIEFILE, $this->getConfiguration()->getCookiePath());
 
             $this->log->addDebug('Using cookie..');
         }
 
         // if cookie file not exist, using id/pwd login
-        if (!file_exists($this->cookie)) {
+        if (!file_exists($this->getConfiguration()->getCookiePath())) {
             $username = $this->getConfiguration()->getJiraUser();
             $password = $this->getConfiguration()->getJiraPassword();
             curl_setopt($ch, CURLOPT_USERPWD, "$username:$password");

@@ -1,85 +1,135 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: keanor
- * Date: 17.08.15
- * Time: 21:58.
+ * @copyright 2018 innosabi GmbH
+ * @author Daniel Jurkovic <daniel.jurkovic@innosabi.com>
  */
 
 namespace JiraRestApi\Configuration;
 
+
 /**
- * Interface ConfigurationInterface.
+ * Class AbstractConfiguration.
  */
 interface ConfigurationInterface
 {
     /**
-     * Jira host.
-     *
      * @return string
      */
     public function getJiraHost();
 
     /**
-     * Jira login.
-     *
+     * @return string
+     */
+    public function getCookiePath();
+
+    /**
      * @return string
      */
     public function getJiraUser();
 
     /**
-     * Jira password.
-     *
      * @return string
      */
     public function getJiraPassword();
 
     /**
-     * Path to log file.
-     *
      * @return string
      */
     public function getJiraLogFile();
 
     /**
-     * Log level (DEBUG, INFO, ERROR, WARNING).
-     *
      * @return string
      */
     public function getJiraLogLevel();
 
     /**
-     * Curl options CURLOPT_SSL_VERIFYHOST.
-     *
      * @return bool
      */
     public function isCurlOptSslVerifyHost();
 
     /**
-     * Curl options CURLOPT_SSL_VERIFYPEER.
-     *
      * @return bool
      */
     public function isCurlOptSslVerifyPeer();
 
     /**
-     * Curl options CURLOPT_VERBOSE.
-     *
      * @return bool
      */
     public function isCurlOptVerbose();
 
     /**
-     * HTTP header 'Authorization: Bearer {token}' for OAuth.
-     *
      * @return string
      */
     public function getOAuthAccessToken();
 
     /**
-     * Use cookie authorization. Login with username and password only once, then use session cookie.
-     *
-     * @return bool
+     * @return string
      */
     public function isCookieAuthorizationEnabled();
+
+    /**
+     * @param string $jiraHost
+     * @return $this
+     */
+    public function setJiraHost($jiraHost);
+
+    /**
+     * @param string $jiraUser
+     * @return $this
+     */
+    public function setJiraUser($jiraUser);
+
+    /**
+     * @param string $jiraPassword
+     * @return $this
+     */
+    public function setJiraPassword($jiraPassword);
+
+    /**
+     * @param string $jiraLogFile
+     * @return $this
+     */
+    public function setJiraLogFile($jiraLogFile);
+
+    /**
+     * @param string $jiraLogLevel
+     * @return $this
+     */
+    public function setJiraLogLevel($jiraLogLevel);
+
+    /**
+     * @param bool $curlOptSslVerifyHost
+     * @return $this
+     */
+    public function setCurlOptSslVerifyHost($curlOptSslVerifyHost);
+
+    /**
+     * @param bool $curlOptSslVerifyPeer
+     * @return $this
+     */
+    public function setCurlOptSslVerifyPeer($curlOptSslVerifyPeer);
+
+    /**
+     * @param bool $curlOptVerbose
+     * @return $this
+     */
+    public function setCurlOptVerbose($curlOptVerbose);
+
+    /**
+     * @param string $oauthAccessToken
+     * @return $this
+     */
+    public function setOauthAccessToken($oauthAccessToken);
+
+    /**
+     * @param bool $cookieAuthEnabled
+     * @return $this
+     */
+    public function setCookieAuthEnabled($cookieAuthEnabled);
+
+    /**
+     * @param string $cookiePath
+     * @return $this
+     */
+    public function setCookiePath($cookiePath);
 }

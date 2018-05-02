@@ -5,7 +5,7 @@ namespace JiraRestApi\Configuration;
 /**
  * Class AbstractConfiguration.
  */
-abstract class AbstractConfiguration implements ConfigurationInterface
+abstract class AbstractConfiguration implements ConfigurationInterface, ConfigurationInterface
 {
     /**
      * Jira host.
@@ -78,11 +78,26 @@ abstract class AbstractConfiguration implements ConfigurationInterface
     protected $cookieAuthEnabled;
 
     /**
+     * cookie file name.
+     *
+     * @var string
+     */
+    protected $cookiePath = 'jira.cookies';
+
+    /**
      * @return string
      */
     public function getJiraHost()
     {
         return $this->jiraHost;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCookiePath()
+    {
+        return $this->cookiePath;
     }
 
     /**
@@ -155,5 +170,115 @@ abstract class AbstractConfiguration implements ConfigurationInterface
     public function isCookieAuthorizationEnabled()
     {
         return $this->cookieAuthEnabled;
+    }
+
+    /**
+     * @param string $jiraHost
+     * @return $this
+     */
+    public function setJiraHost($jiraHost)
+    {
+        $this->jiraHost = $jiraHost;
+        return $this;
+    }
+
+    /**
+     * @param string $jiraUser
+     * @return $this
+     */
+    public function setJiraUser($jiraUser)
+    {
+        $this->jiraUser = $jiraUser;
+        return $this;
+    }
+
+    /**
+     * @param string $jiraPassword
+     * @return $this
+     */
+    public function setJiraPassword($jiraPassword)
+    {
+        $this->jiraPassword = $jiraPassword;
+        return $this;
+    }
+
+    /**
+     * @param string $jiraLogFile
+     * @return $this
+     */
+    public function setJiraLogFile($jiraLogFile)
+    {
+        $this->jiraLogFile = $jiraLogFile;
+        return $this;
+    }
+
+    /**
+     * @param string $jiraLogLevel
+     * @return $this
+     */
+    public function setJiraLogLevel($jiraLogLevel)
+    {
+        $this->jiraLogLevel = $jiraLogLevel;
+        return $this;
+    }
+
+    /**
+     * @param bool $curlOptSslVerifyHost
+     * @return $this
+     */
+    public function setCurlOptSslVerifyHost($curlOptSslVerifyHost)
+    {
+        $this->curlOptSslVerifyHost = $curlOptSslVerifyHost;
+        return $this;
+    }
+
+    /**
+     * @param bool $curlOptSslVerifyPeer
+     * @return $this
+     */
+    public function setCurlOptSslVerifyPeer($curlOptSslVerifyPeer)
+    {
+        $this->curlOptSslVerifyPeer = $curlOptSslVerifyPeer;
+        return $this;
+    }
+
+    /**
+     * @param bool $curlOptVerbose
+     * @return $this
+     */
+    public function setCurlOptVerbose($curlOptVerbose)
+    {
+        $this->curlOptVerbose = $curlOptVerbose;
+        return $this;
+    }
+
+    /**
+     * @param string $oauthAccessToken
+     * @return $this
+     */
+    public function setOauthAccessToken($oauthAccessToken)
+    {
+        $this->oauthAccessToken = $oauthAccessToken;
+        return $this;
+    }
+
+    /**
+     * @param bool $cookieAuthEnabled
+     * @return $this
+     */
+    public function setCookieAuthEnabled($cookieAuthEnabled)
+    {
+        $this->cookieAuthEnabled = $cookieAuthEnabled;
+        return $this;
+    }
+
+    /**
+     * @param string $cookiePath
+     * @return $this
+     */
+    public function setCookiePath($cookiePath)
+    {
+        $this->cookiePath = $cookiePath;
+        return $this;
     }
 }
