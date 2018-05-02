@@ -1,5 +1,5 @@
 {
-    "name": "lesstif/php-jira-rest-client",
+    "name": "macroparts/php-jira-rest-client",
     "description": "JIRA REST API Client for PHP Users.",
     "type": "library",
     "keywords": ["jira", "rest", "jira-php", "jira-rest"],
@@ -17,9 +17,9 @@
     "license": "Apache-2.0",
     "authors": [
         {
-            "name": "KwangSeob Jeong",
-            "email": "lesstif@gmail.com",
-            "homepage": "http://lesstif.com/"
+            "name": "Daniel Jurkovic",
+            "email": "daniel@jurkovic.io",
+            "homepage": "https://jurkovic.io/"
         }
     ],
     "autoload": {
